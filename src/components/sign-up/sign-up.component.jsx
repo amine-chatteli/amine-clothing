@@ -58,7 +58,7 @@ class SignUp extends Component {
                         required />
                     <FormInput
                         type="email"
-                        name="Email"
+                        name="email"
                         value={email}
                         onChange={this.handleChange}
                         label='Email'
@@ -72,7 +72,7 @@ class SignUp extends Component {
                         required />
                     <FormInput
                         type="password"
-                        name="confirm password"
+                        name="confirmPassword"
                         value={confirmPassword}
                         onChange={this.handleChange}
                         label='Confirm Password'
