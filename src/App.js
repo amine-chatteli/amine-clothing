@@ -5,7 +5,7 @@ import { Route, Switch } from 'react-router-dom';
 import ShopPage from './pages/shop/shop.component';
 import Header from './components/header/header.component';
 import SignInAndSignUpPAge from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
-import { auth } from './firebase/firebase.utils';
+import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -13,13 +13,23 @@ class App extends React.Component {
       currentUser: null
     }
   }
-  unsubscribeFromAuth
+  unsubscribeFromAuth = null;
   componentDidMount() {
     //setting our local state to user state provided by firebase subscription
-    auth.onAuthStateChanged((user) => {
-      this.setState({ currentUser: user })
-      console.log(user);
-    })
+    auth.onAuthStateChanged(async userAuth => {
+      if (userAuth) {
+        const userRef = await createUserProfileDocument(userAuth);
+        //get a snapchot object containing the current data in the database, in casea new user signs in
+        userRef.onSnapshot(snapshot => {
+          this.setState({
+            id: snapshot.id,
+            ...snapshot.data()
+          })
+
+        })
+      }
+      this.setState({ currentUser: userAuth })
+    });
   }
   componentWillUnmount() {
     //close firebase subscription to avoid memory leaks
@@ -28,7 +38,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Header currentUser={this.state.currentUser}/>
+        <Header currentUser={this.state.currentUser} />
         <Switch>
           <Route exact path='/' component={HomePage} />
           <Route exact path='/shop' component={ShopPage} />
