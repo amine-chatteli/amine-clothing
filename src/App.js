@@ -11,7 +11,7 @@ import './App.css';
 
 class App extends React.Component {
 
-  unsubscribeFromAuth = null;
+   unsubscribeFromAuth = null;
   componentDidMount() {
     const { setCurrentUser } = this.props;
     //setting ourstate to user state provided by firebase subscription with setCurrentUser action
