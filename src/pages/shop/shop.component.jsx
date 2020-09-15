@@ -1,23 +1,38 @@
-import React from 'react';
+import React, { Component, component } from 'react';
 import CollectionsOverview from '../../components/collections-overview/collections-overview.component';
 import { Route, Switch, Router } from 'react-router-dom';
 import CollectionPage from '../collection/collection.component';
+import { firestore,convertCollectionsSnapshotToMap } from '../../firebase/firebase.utils';
 
-const ShopPage = ({ match }) => (
-    <div>
+class ShopPage extends Component {
 
-        <Route
-            exact
-            path={`${match.path}/`}
-            component={CollectionsOverview} />
+    unsubscribeFromSnapshot = null;
+    componentDidMount() {
+        const collectionRef = firestore.collection('collections');
+        collectionRef.onSnapshot(async snapshot=>{
+            convertCollectionsSnapshotToMap(snapshot)
+        })
+    }
 
-        <Route
-            exact
-            path={`${match.path}/:collectionId`}
-            component={CollectionPage} />
+    render() {
+        const { match } = this.props;
+        return (
+            <div>
+                <Route
+                    exact
+                    path={`${match.path}`}
+                    component={CollectionsOverview} />
 
-    </div>
-)
+                <Route
+                    exact
+                    path={`${match.path}/:collectionId`}
+                    component={CollectionPage} />
+
+            </div>
+        )
+    }
+
+}
 
 
 

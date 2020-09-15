@@ -10,12 +10,14 @@ import { setCurrentUser } from './redux/user/user.actions';
 import CheckoutPage from './pages/checkout/checkout.componet';
 import CollectionOverview from './components/collections-overview/collections-overview.component';
 import './App.css';
+import { createStructuredSelector } from 'reselect';
+import { selectCurrentUser } from './redux/user/user.selectors';
 
 class App extends React.Component {
 
    unsubscribeFromAuth = null;
   componentDidMount() {
-    const { setCurrentUser } = this.props;
+    const { setCurrentUser} = this.props;
     //setting ourstate to user state provided by firebase subscription with setCurrentUser action
     auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
@@ -29,7 +31,8 @@ class App extends React.Component {
 
         })
       }
-      setCurrentUser(userAuth)
+      setCurrentUser(userAuth);
+     
     });
   }
   componentWillUnmount() {
@@ -57,9 +60,9 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = ({ user }) => ({
-  currentUser: user.currentUser
-});
+const mapStateToProps =createStructuredSelector({
+  currentUser: selectCurrentUser,
+})
 
 const mapDispatchToProps = dispatch => ({
   setCurrentUser: user => dispatch(setCurrentUser(user))
