@@ -49,9 +49,9 @@ export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => 
 //convert the data that we get from firestore to the format needed on our frontend
 export const convertCollectionsSnapshotToMap = (collections) => {
     const transformedCollection = collections.docs.map(doc => {
-        const { title, items } = doc.data();
+        const { title, items, } = doc.data();
         return {
-            routeName: encodeURI(title),
+            routeName: encodeURI(title.toLowerCase()),
             id: doc.id,
             title,
             items
