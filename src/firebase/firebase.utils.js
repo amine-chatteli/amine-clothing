@@ -53,7 +53,7 @@ export const convertCollectionsSnapshotToMap = (collections) => {
         return {
             routeName: encodeURI(title.toLowerCase()),
             id: doc.id,
-            title,
+            title:title.toLowerCase(),
             items
         };
     });
