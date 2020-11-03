@@ -1,6 +1,6 @@
 import React from 'react';
 import HomePage from "./pages/homepage/homepage.component";
-import { Route, Switch, Redirect, HashRouter } from 'react-router-dom';
+import { Route, Switch, Redirect,HashRouter } from 'react-router-dom';
 import ShopPage from './pages/shop/shop.component';
 import Header from './components/header/header.component';
 import SignInAndSignUpPAge from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
@@ -15,9 +15,9 @@ import { selectCurrentUser } from './redux/user/user.selectors';
 
 class App extends React.Component {
 
-  unsubscribeFromAuth = null;
+   unsubscribeFromAuth = null;
   componentDidMount() {
-    const { setCurrentUser } = this.props;
+    const { setCurrentUser} = this.props;
     //setting ourstate to user state provided by firebase subscription with setCurrentUser action
     auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
@@ -32,7 +32,7 @@ class App extends React.Component {
         })
       }
       setCurrentUser(userAuth);
-
+     
     });
   }
   componentWillUnmount() {
@@ -43,27 +43,25 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <HashRouter basename='/'>
-          <Switch>
+        <Switch>
 
-            <Route exact path='/' component={HomePage} />
-            <Route path='/shop' component={ShopPage} />
-            <Route exact path='/checkout' component={CheckoutPage} />
+          <Route exact path='/' component={HomePage} />
+          <Route  path='/shop' component={ShopPage} />
+          <Route exact path='/checkout' component={CheckoutPage} />
 
-            <Route exact path='/signin' render={() =>
-              this.props.currentUser ?
-                (<Redirect to='/' />)
-                :
-                <SignInAndSignUpPAge />} />
+          <Route exact path='/signin' render={() =>
+            this.props.currentUser ?
+              (<Redirect to='/' />)
+              :
+              <SignInAndSignUpPAge />} />
 
-          </Switch>
-        </HashRouter>
+        </Switch>
       </div>
     );
   }
 }
 
-const mapStateToProps = createStructuredSelector({
+const mapStateToProps =createStructuredSelector({
   currentUser: selectCurrentUser,
 })
 

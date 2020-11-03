@@ -11,7 +11,7 @@ import './index.css';
 
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <PersistGate persistor={persistor}>
         <App />
       </PersistGate>
