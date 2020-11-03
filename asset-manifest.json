@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/amine-clothing/static/css/main.86d7cd1e.chunk.css",
-    "main.js": "/amine-clothing/static/js/main.58e649bd.chunk.js",
-    "main.js.map": "/amine-clothing/static/js/main.58e649bd.chunk.js.map",
+    "main.js": "/amine-clothing/static/js/main.d4256353.chunk.js",
+    "main.js.map": "/amine-clothing/static/js/main.d4256353.chunk.js.map",
     "runtime-main.js": "/amine-clothing/static/js/runtime-main.767ad530.js",
     "runtime-main.js.map": "/amine-clothing/static/js/runtime-main.767ad530.js.map",
     "static/js/2.ab775881.chunk.js": "/amine-clothing/static/js/2.ab775881.chunk.js",
     "static/js/2.ab775881.chunk.js.map": "/amine-clothing/static/js/2.ab775881.chunk.js.map",
     "index.html": "/amine-clothing/index.html",
-    "precache-manifest.ee0f3a1b359fce2fd040c5de33dbce5e.js": "/amine-clothing/precache-manifest.ee0f3a1b359fce2fd040c5de33dbce5e.js",
+    "precache-manifest.464b293b48086b69624c212de4fe3020.js": "/amine-clothing/precache-manifest.464b293b48086b69624c212de4fe3020.js",
     "service-worker.js": "/amine-clothing/service-worker.js",
     "static/css/main.86d7cd1e.chunk.css.map": "/amine-clothing/static/css/main.86d7cd1e.chunk.css.map",
     "static/js/2.ab775881.chunk.js.LICENSE.txt": "/amine-clothing/static/js/2.ab775881.chunk.js.LICENSE.txt",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.767ad530.js",
     "static/js/2.ab775881.chunk.js",
     "static/css/main.86d7cd1e.chunk.css",
-    "static/js/main.58e649bd.chunk.js"
+    "static/js/main.d4256353.chunk.js"
   ]
 }
