@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/amine-clothing/precache-manifest.06c2dc6cc13e8ce9f740a273b44b3ec3.js"
+  "/amine-clothing/precache-manifest.ee0f3a1b359fce2fd040c5de33dbce5e.js"
 );
 
 self.addEventListener('message', (event) => {

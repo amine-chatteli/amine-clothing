@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b9942b919fbc4b6c76410e7e45a2a459",
+    "revision": "aa7f9b9924c16e3885eb3e6ab79e202b",
     "url": "/amine-clothing/index.html"
   },
   {
-    "revision": "d0ece11797a075d48409",
+    "revision": "d3f2fd1ad85fe31fa366",
     "url": "/amine-clothing/static/css/main.86d7cd1e.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/amine-clothing/static/js/2.ab775881.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d0ece11797a075d48409",
-    "url": "/amine-clothing/static/js/main.1551b615.chunk.js"
+    "revision": "d3f2fd1ad85fe31fa366",
+    "url": "/amine-clothing/static/js/main.58e649bd.chunk.js"
   },
   {
     "revision": "a23329a9b9a58c78f1b2",
